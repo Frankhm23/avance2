@@ -6,10 +6,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.parrasdev.presentation.initial.IniitalScren
 import com.example.parrasdev.presentation.login.LoginScren
-import com.example.parrasdev.presentation.singup.singupScren
+import com.example.parrasdev.presentation.singup.SingupScren
+import com.google.firebase.auth.FirebaseAuth
 @Composable
 
-fun NavigationWraper(navHostController: NavHostController) {
+fun NavigationWraper(navHostController: NavHostController, auth: FirebaseAuth) {
     NavHost(navController = navHostController, startDestination = "inital"){
         composable("initial"){
             IniitalScren(
@@ -19,10 +20,10 @@ fun NavigationWraper(navHostController: NavHostController) {
             )
         }
         composable("login") {
-            LoginScren()
+            LoginScren(auth)
         }
         composable("singup") {
-            singupScren()
+            SingupScren(auth)
         }
     }
 }

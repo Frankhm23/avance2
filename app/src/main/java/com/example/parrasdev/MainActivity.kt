@@ -13,11 +13,15 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.parrasdev.ui.theme.ParrasDevTheme
+import com.google.firebase.Firebase
+import com.google.firebase.auth.*
 
 class MainActivity : ComponentActivity() {
     private lateinit var navHostController: NavHostController
+    private  lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        auth = Firebase.auth
         enableEdgeToEdge()
         setContent {
             navHostController = rememberNavController()
@@ -28,7 +32,15 @@ class MainActivity : ComponentActivity() {
                     }
                 }
             }
-            NavigationWraper(navHostController)
+            NavigationWraper(navHostController, auth)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser: FirebaseUser? = auth.currentUser
+        if (currentUser != null){
+            //home
         }
     }
 }
