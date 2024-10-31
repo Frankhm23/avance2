@@ -42,26 +42,34 @@ import com.example.parrasdev.ui.theme.ShapeButton
 fun IniitalScren(navigateToLogin:() -> Unit = {},navigateToSingUp:() -> Unit= {}){
     Column (modifier = Modifier.fillMaxSize().background(brush = Brush.verticalGradient(listOf(
         Gray,
-        Black), startY = 0f , endY = 600f ))){
+        Black), startY = 0f , endY = 600f )),
+            horizontalAlignment = Alignment.CenterHorizontally
+    ){
         Spacer(modifier = Modifier.weight(1f))
         Image(painter = painterResource(id = R.drawable.clogo), contentDescription = "",
             modifier = Modifier.clip(CircleShape))
         Spacer(modifier = Modifier.weight(1f))
         Text("Access Your Account \n",
             color = Color.White,
-            fontSize = 38.sp,
+            fontSize = 32.sp,
             fontWeight = FontWeight.Bold
             )
         Spacer(modifier = Modifier.weight(1f))
-        Button(onClick = {}, modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp).height(48.dp), colors = ButtonDefaults.buttonColors(containerColor = Green)) {
+        Button(onClick = {navigateToSingUp()}, modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp).height(48.dp), colors = ButtonDefaults.buttonColors(containerColor = Green)) {
             Text(text = "Sing up Free", color = Black)
         }
         Spacer(modifier = Modifier.height(8.dp))
         CustomButton(Modifier.clickable {}, painterResource(id = R.drawable.google),"Google")
         Spacer(modifier = Modifier.height(8.dp))
         CustomButton(Modifier.clickable {}, painterResource(id = R.drawable.facebook),"Facebook")
-        Text(text = "Log in", color = Color.White, modifier = Modifier.padding(24.dp).clickable { navigateToLogin })
-        Spacer(modifier = Modifier.height(8.dp))
+        Text(
+            text = "Log in",
+            color = Color.White,
+            modifier = Modifier
+                .padding(24.dp)
+                .clickable { navigateToLogin() }
+        )
+        Spacer(modifier = Modifier.height(24.dp))
     }
 }
 @Composable

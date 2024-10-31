@@ -1,5 +1,3 @@
-package com.example.parrasdev.presentation.singup
-
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -35,14 +33,16 @@ import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 
-fun SingupScren(auth: FirebaseAuth) {
+
+fun LoginScreen(auth: FirebaseAuth) {
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
     Column(modifier = Modifier.fillMaxSize().background(Black)
         .padding(horizontal = 32.dp)
-    ) {
+    )
+    {
         Row(){
             Icon(
                 painter = painterResource(id = R.drawable.back),
@@ -69,18 +69,17 @@ fun SingupScren(auth: FirebaseAuth) {
         )
         Spacer(Modifier.height(48.dp))
         Button(onClick = {
-            auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{ task ->
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener{ task ->
                 if(task.isSuccessful){
 
-                    Log.i("aris", "Registro OK")
+                    Log.i("aris", "LOGIN OK")
                 }else{
                     //Error
-                    Log.i("aris", "Registro KO")
+                    Log.i("aris", "LOGIN KO")
                 }
             }
         }) {
-            Text(text = "Sing Up")
+            Text(text = "Login")
         }
     }
-
 }

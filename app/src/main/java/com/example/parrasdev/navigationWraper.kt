@@ -1,17 +1,18 @@
 package com.example.parrasdev
 
+import LoginScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.parrasdev.presentation.initial.IniitalScren
-import com.example.parrasdev.presentation.login.LoginScren
 import com.example.parrasdev.presentation.singup.SingupScren
 import com.google.firebase.auth.FirebaseAuth
+
 @Composable
 
-fun NavigationWraper(navHostController: NavHostController, auth: FirebaseAuth) {
-    NavHost(navController = navHostController, startDestination = "inital"){
+fun NavigationWrapper(navHostController: NavHostController, auth: FirebaseAuth) {
+    NavHost(navController = navHostController, startDestination = "initial"){
         composable("initial"){
             IniitalScren(
                 navigateToLogin = {navHostController.navigate("login")},
@@ -20,7 +21,7 @@ fun NavigationWraper(navHostController: NavHostController, auth: FirebaseAuth) {
             )
         }
         composable("login") {
-            LoginScren(auth)
+            LoginScreen(auth)
         }
         composable("singup") {
             SingupScren(auth)
