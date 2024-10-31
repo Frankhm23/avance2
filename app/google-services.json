@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "920777007825",
+    "project_id": "parra-s-dev",
+    "storage_bucket": "parra-s-dev.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920777007825:android:16b0979497a82b30cb5bf0",
+        "android_client_info": {
+          "package_name": "com.example.parrasdev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA14lZ6Fnn-35Mawya-8LLXJxS6AikQDz8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
