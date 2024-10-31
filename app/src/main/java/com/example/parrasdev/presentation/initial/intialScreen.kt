@@ -34,6 +34,7 @@ import com.example.parrasdev.ui.theme.BackgroundButton
 import com.example.parrasdev.ui.theme.Black
 import com.example.parrasdev.ui.theme.Gray
 import com.example.parrasdev.ui.theme.Green
+import com.example.parrasdev.ui.theme.Purple40
 import com.example.parrasdev.ui.theme.ShapeButton
 
 @Preview
@@ -42,11 +43,12 @@ import com.example.parrasdev.ui.theme.ShapeButton
 fun InitialScreen(navigateToLogin:() -> Unit = {}, navigateToSingUp:() -> Unit= {}){
     Column (modifier = Modifier.fillMaxSize().background(brush = Brush.verticalGradient(listOf(
         Gray,
-        Black), startY = 0f , endY = 600f )),
+        Purple40
+    ), startY = 0f , endY = 600f )),
             horizontalAlignment = Alignment.CenterHorizontally
     ){
         Spacer(modifier = Modifier.weight(1f))
-        Image(painter = painterResource(id = R.drawable.pdev), contentDescription = "",
+        Image(painter = painterResource(id = R.drawable.clogo), contentDescription = "",
             modifier = Modifier.clip(CircleShape))
         Spacer(modifier = Modifier.weight(1f))
         Text("Access Your Account \n",

@@ -22,25 +22,28 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color.Companion.Gray
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parrasdev.R
-import com.example.parrasdev.ui.theme.Black
+import com.example.parrasdev.ui.theme.Purple40
 import com.example.parrasdev.ui.theme.UnselectedField
 import com.google.firebase.auth.FirebaseAuth
 
-
 @Composable
+
 
 fun SingupScren(auth: FirebaseAuth) {
 
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
 
-    Column(modifier = Modifier.fillMaxSize().background(Black)
+    Column(modifier = Modifier.fillMaxSize().background(brush = Brush.verticalGradient(listOf(Gray,
+        Purple40)))
         .padding(horizontal = 32.dp)
     ) {
         Row(){

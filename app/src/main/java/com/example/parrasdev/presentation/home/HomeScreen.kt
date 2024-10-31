@@ -1,5 +1,3 @@
-@file:Suppress("UNUSED_EXPRESSION")
-
 package com.example.parrasdev.presentation.home
 
 import androidx.compose.foundation.Image
@@ -21,9 +19,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.parrasdev.R
-import com.example.parrasdev.ui.theme.Black
 import com.example.parrasdev.ui.theme.Gray
+import com.example.parrasdev.ui.theme.Purple40
 import com.google.firebase.auth.FirebaseAuth
+
 
 
 @Composable
@@ -32,7 +31,7 @@ fun HomeScreen(navigateToLogout:() -> Unit) {
     val userEmail = auth.currentUser?.email ?: "user@example.com"
     Column (modifier = Modifier.fillMaxSize().background(brush = Brush.verticalGradient(listOf(
         Gray,
-        Black
+        Purple40
     ), startY = 0f , endY = 600f )),
         horizontalAlignment = Alignment.CenterHorizontally ) {
         Spacer(modifier = Modifier.weight(1f))
@@ -45,13 +44,13 @@ fun HomeScreen(navigateToLogout:() -> Unit) {
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.weight(8f))
-        Text(text = "Email \n")
+        Text(text = "Aqui Van el Menu Xd \n")
         Spacer(modifier = Modifier.weight(8f))
 
         Button(
             onClick = {
-                    auth.signOut()
-                    navigateToLogout()
+                auth.signOut()
+                navigateToLogout()
             },
             colors = ButtonDefaults.buttonColors(containerColor = Color.Red)
         ) {
@@ -65,3 +64,26 @@ fun HomeScreen(navigateToLogout:() -> Unit) {
     }
 
 }
+
+/*
+data class Paquetes(
+    val name:String,
+    val precio:Int,
+    val descripcion:String,
+
+)
+fun createPaquetes (db:FirebaseFirestore){
+    val random = (1..1000).random()
+    val paquetes = Paquetes(name = "Random $random", descripcion = "Random $random", precio = random)
+    db.collection("Paquetes").add(paquetes) .addOnSuccessListener {
+            Log.i("Aris", "SUCCESS")
+      }
+       .addOnFailureListener {
+           Log.i("Aris", "FAILURE")
+     }
+       .addOnCompleteListener {
+         Log.i("Aris", "COMPLETE")
+      }
+
+}
+*/
